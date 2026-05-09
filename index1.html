@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="Portfolio de Mohamed HARO – Étudiant en Cybersécurité, Hacker Éthique, Web Designer" />
+        <meta name="author" content="Mohamed HARO" />
+        <title>Mohamed HARO | Cybersécurité & Web</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Font Awesome icons -->
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google Fonts : Montserrat + Lato (fidèles au template) -->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,900" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <!-- Bootstrap -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+        <!-- Custom dark theme -->
+        <link rel="" href="dark-theme.css">
+        <style>
+            /* =============================================
+               DARK HACKER OVERRIDE
+               Conserve la structure Bootstrap du template
+               mais bascule sur une palette sombre & cyber
+            ============================================= */
+            :root {
+                --cyber-green:  #00ff9d;
+                --cyber-blue:   #00cfff;
+                --dark-bg:      #0a0e17;
+                --dark-card:    #0f1623;
+                --dark-nav:     #060a10;
+                --border-glow:  rgba(0, 255, 157, 0.25);
+                --text-primary: #e8f0fe;
+                --text-muted:   #7a8fa6;
+            }
+
+            /* ---- GLOBAL ---- */
+            body {
+                background-color: var(--dark-bg);
+                color: var(--text-primary);
+                font-family: "Lato", sans-serif;
+            }
+
+            /* Scanline overlay subtil */
+            body::before {
+                content: "";
+                position: fixed;
+                inset: 0;
+                background: repeating-linear-gradient(
+                    0deg,
+                    transparent,
+                    transparent 2px,
+                    rgba(0,0,0,0.04) 2px,
+                    rgba(0,0,0,0.04) 4px
+                );
+                pointer-events: none;
+                z-index: 9999;
+            }
+
+            /* ---- NAVBAR ---- */
+            #mainNav {
+                background-color: var(--dark-nav) !important;
+                border-bottom: 1px solid rgba(0,255,157,0.15);
+                font-family: "Montserrat", sans-serif;
+                font-weight: 700;
+                padding-top: 1rem;
+                padding-bottom: 1rem;
+                transition: padding-top 0.3s, padding-bottom 0.3s;
+            }
+            #mainNav .navbar-brand {
+                color: var(--cyber-green) !important;
+                letter-spacing: 2px;
+                font-size: 1.1rem;
+            }
+            #mainNav .navbar-brand span {
+                color: var(--cyber-blue);
+            }
+            #mainNav .nav-link {
+                color: var(--text-primary) !important;
+                letter-spacing: 1px;
+                font-size: 0.85rem;
+            }
+            #mainNav .nav-link:hover,
+            #mainNav .nav-link.active {
+                color: var(--cyber-green) !important;
+                background-color: rgba(0,255,157,0.08) !important;
+                border-radius: 4px;
+            }
+            #mainNav.navbar-shrink {
+                padding-top: 0.4rem;
+                padding-bottom: 0.4rem;
+            }
+            #mainNav.navbar-shrink .navbar-brand { font-size: 1rem; }
+
+            /* ---- HEADER / MASTHEAD ---- */
+            .masthead {
+                background: linear-gradient(135deg, #060a10 0%, #0a1628 50%, #0d1f0f 100%);
+                padding-top: calc(6rem + 74px);
+                padding-bottom: 6rem;
+                position: relative;
+                overflow: hidden;
+                text-align: center;
+            }
+            /* Grille animée en arrière-plan */
+            .masthead::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background-image:
+                    linear-gradient(rgba(0,255,157,0.04) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(0,255,157,0.04) 1px, transparent 1px);
+                background-size: 50px 50px;
+                animation: gridPulse 8s ease-in-out infinite;
+            }
+            @keyframes gridPulse {
+                0%,100% { opacity: 0.5; }
+                50%      { opacity: 1; }
+            }
+            /* Cercle lumineux derrière l'avatar */
+            .masthead::after {
+                content: "";
+                position: absolute;
+                top: 15%;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 320px;
+                height: 320px;
+                background: radial-gradient(circle, rgba(0,255,157,0.08) 0%, transparent 70%);
+                border-radius: 50%;
+                pointer-events: none;
+            }
+            .masthead-avatar {
+                width: 15rem;
+                border-radius: 50%;
+                border: 3px solid var(--cyber-green);
+                box-shadow: 0 0 30px rgba(0,255,157,0.35), 0 0 60px rgba(0,255,157,0.1);
+                position: relative;
+                z-index: 1;
+                animation: avatarGlow 3s ease-in-out infinite;
+            }
+            @keyframes avatarGlow {
+                0%,100% { box-shadow: 0 0 30px rgba(0,255,157,0.35), 0 0 60px rgba(0,255,157,0.1); }
+                50%     { box-shadow: 0 0 40px rgba(0,255,157,0.6),  0 0 80px rgba(0,255,157,0.2); }
+            }
+            .masthead-heading {
+                font-family: "Montserrat", sans-serif;
+                font-weight: 900;
+                font-size: 3rem;
+                color: #fff;
+                letter-spacing: 4px;
+                position: relative;
+                z-index: 1;
+            }
+            .masthead-heading span { color: var(--cyber-green); }
+            .masthead-subheading {
+                font-family: "Lato", sans-serif;
+                font-size: 1.1rem;
+                color: var(--text-muted);
+                letter-spacing: 2px;
+                position: relative;
+                z-index: 1;
+            }
+            /* Typage animé curseur */
+            .cursor-blink {
+                display: inline-block;
+                width: 2px;
+                height: 1.1em;
+                background: var(--cyber-green);
+                margin-left: 3px;
+                vertical-align: middle;
+                animation: blink 1s step-end infinite;
+            }
+            @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+
+            /* Divider custom conservé, recolorisé */
+            .divider-custom { margin: 1.25rem 0 1.5rem; width: 100%; display: flex; justify-content: center; align-items: center; }
+            .divider-custom .divider-custom-line {
+                width: 100%; max-width: 7rem; height: 2px;
+                background: var(--cyber-green);
+                border-radius: 1rem;
+                box-shadow: 0 0 8px rgba(0,255,157,0.5);
+            }
+            .divider-custom .divider-custom-line:first-child { margin-right: 1rem; }
+            .divider-custom .divider-custom-line:last-child  { margin-left:  1rem; }
+            .divider-custom .divider-custom-icon { color: var(--cyber-green); font-size: 2rem; }
+            .divider-custom.divider-light .divider-custom-line { background: rgba(0,255,157,0.5); }
+            .divider-custom.divider-light .divider-custom-icon { color: var(--cyber-green); }
+
+            /* ---- SECTION HEADING ---- */
+            .page-section { padding: 6rem 0; }
+            .page-section-heading {
+                font-family: "Montserrat", sans-serif;
+                font-size: 2.25rem;
+                font-weight: 900;
+                letter-spacing: 3px;
+                color: #fff;
+            }
+            @media (min-width: 992px) {
+                .page-section-heading { font-size: 3rem; }
+            }
+
+            /* ---- SECTION PROJETS ---- */
+            .portfolio { background-color: var(--dark-bg); }
+            .portfolio-item {
+                cursor: pointer;
+                position: relative;
+                display: block;
+                max-width: 25rem;
+                border-radius: 8px;
+                overflow: hidden;
+                border: 1px solid rgba(0,255,157,0.2);
+                transition: border-color 0.3s, transform 0.3s;
+                background: var(--dark-card);
+            }
+            .portfolio-item:hover {
+                border-color: var(--cyber-green);
+                transform: translateY(-4px);
+                box-shadow: 0 8px 32px rgba(0,255,157,0.15);
+            }
+            .portfolio-item-caption {
+                position: absolute; top: 0; left: 0;
+                transition: opacity 0.2s ease-in-out;
+                opacity: 0;
+                background-color: rgba(0,255,157,0.88);
+            }
+            .portfolio-item-caption:hover { opacity: 1; }
+            .portfolio-item-caption-content { font-size: 1.5rem; color: #000; }
+
+            /* Carte projet (pas d'image réelle) */
+            .project-card {
+                background: var(--dark-card);
+                border: 1px solid rgba(0,255,157,0.2);
+                border-radius: 8px;
+                padding: 2rem;
+                transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+                cursor: pointer;
+            }
+            .project-card:hover {
+                border-color: var(--cyber-green);
+                transform: translateY(-4px);
+                box-shadow: 0 8px 32px rgba(0,255,157,0.12);
+            }
+            .project-card .project-icon {
+                font-size: 2.5rem;
+                color: var(--cyber-green);
+                margin-bottom: 1rem;
+            }
+            .project-card h5 {
+                font-family: "Montserrat", sans-serif;
+                font-weight: 700;
+                color: #fff;
+                font-size: 1rem;
+                letter-spacing: 1px;
+                margin-bottom: 0.75rem;
+            }
+            .project-card p {
+                color: var(--text-muted);
+                font-size: 0.9rem;
+                margin-bottom: 1rem;
+            }
+            .badge-tech {
+                display: inline-block;
+                background: rgba(0,255,157,0.1);
+                color: var(--cyber-green);
+                border: 1px solid rgba(0,255,157,0.3);
+                border-radius: 4px;
+                font-size: 0.7rem;
+                padding: 2px 8px;
+                margin: 2px;
+                font-family: "Montserrat", sans-serif;
+                letter-spacing: 0.5px;
+            }
+            .badge-status {
+                display: inline-block;
+                background: rgba(0,207,255,0.1);
+                color: var(--cyber-blue);
+                border: 1px solid rgba(0,207,255,0.3);
+                border-radius: 4px;
+                font-size: 0.65rem;
+                padding: 2px 8px;
+                font-family: "Montserrat", sans-serif;
+                letter-spacing: 1px;
+                text-transform: uppercase;
+                float: right;
+            }
+
+            /* ---- SECTION À PROPOS ---- */
+            #about {
+                background: linear-gradient(135deg, #060a10 0%, #0a1020 100%);
+                border-top: 1px solid rgba(0,255,157,0.1);
+                border-bottom: 1px solid rgba(0,255,157,0.1);
+            }
+            #about .page-section-heading { color: #fff; }
+
+            .skill-bar-wrap { margin-bottom: 1.2rem; }
+            .skill-label {
+                font-family: "Montserrat", sans-serif;
+                font-size: 0.8rem;
+                font-weight: 700;
+                letter-spacing: 1px;
+                color: var(--text-primary);
+                margin-bottom: 0.3rem;
+            }
+            .skill-bar {
+                background: rgba(255,255,255,0.05);
+                border-radius: 4px;
+                height: 6px;
+                overflow: hidden;
+            }
+            .skill-bar-fill {
+                height: 100%;
+                background: linear-gradient(90deg, var(--cyber-green), var(--cyber-blue));
+                border-radius: 4px;
+                box-shadow: 0 0 8px rgba(0,255,157,0.4);
+                animation: fillBar 1.5s ease-out forwards;
+                width: 0;
+            }
+            @keyframes fillBar { to { width: var(--fill); } }
+
+            .info-item {
+                display: flex;
+                align-items: center;
+                gap: 0.75rem;
+                margin-bottom: 0.75rem;
+                color: var(--text-primary);
+                font-size: 0.95rem;
+            }
+            .info-item i { color: var(--cyber-green); width: 18px; }
+
+            .formation-item {
+                border-left: 2px solid var(--cyber-green);
+                padding-left: 1.2rem;
+                margin-bottom: 1.5rem;
+                position: relative;
+            }
+            .formation-item::before {
+                content: "";
+                position: absolute;
+                left: -5px;
+                top: 6px;
+                width: 8px;
+                height: 8px;
+                background: var(--cyber-green);
+                border-radius: 50%;
+                box-shadow: 0 0 6px var(--cyber-green);
+            }
+            .formation-item .f-title {
+                font-family: "Montserrat", sans-serif;
+                font-weight: 700;
+                font-size: 0.85rem;
+                color: #fff;
+                letter-spacing: 0.5px;
+            }
+            .formation-item .f-org {
+                font-size: 0.8rem;
+                color: var(--cyber-blue);
+            }
+            .formation-item .f-date {
+                font-size: 0.75rem;
+                color: var(--text-muted);
+            }
+
+            /* ---- SECTION CONTACT ---- */
+            #contact { background-color: var(--dark-bg); }
+            #contact .page-section-heading { color: #fff; }
+
+            .form-floating input.form-control,
+            .form-floating textarea.form-control {
+                background-color: var(--dark-card);
+                border: none;
+                border-bottom: 1px solid rgba(0,255,157,0.3);
+                border-radius: 0;
+                color: var(--text-primary);
+                font-size: 1rem;
+            }
+            .form-floating input.form-control:focus,
+            .form-floating textarea.form-control:focus {
+                background-color: var(--dark-card);
+                border-bottom-color: var(--cyber-green);
+                box-shadow: none;
+                color: var(--text-primary);
+            }
+            .form-floating label { color: var(--text-muted); font-size: 0.95rem; }
+            .btn-cyber {
+                background: transparent;
+                border: 1px solid var(--cyber-green);
+                color: var(--cyber-green);
+                font-family: "Montserrat", sans-serif;
+                font-weight: 700;
+                letter-spacing: 2px;
+                padding: 0.75rem 2.5rem;
+                text-transform: uppercase;
+                font-size: 0.85rem;
+                transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+            }
+            .btn-cyber:hover {
+                background: var(--cyber-green);
+                color: #000;
+                box-shadow: 0 0 20px rgba(0,255,157,0.4);
+            }
+
+            /* Liens contact directs */
+            .contact-link {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                padding: 1rem 1.25rem;
+                background: var(--dark-card);
+                border: 1px solid rgba(0,255,157,0.15);
+                border-radius: 8px;
+                color: var(--text-primary);
+                text-decoration: none;
+                margin-bottom: 0.75rem;
+                transition: border-color 0.3s, color 0.3s;
+            }
+            .contact-link:hover { border-color: var(--cyber-green); color: var(--cyber-green); }
+            .contact-link i { color: var(--cyber-green); font-size: 1.25rem; width: 24px; }
+            .contact-link span { font-size: 0.95rem; }
+
+            /* ---- FOOTER ---- */
+            .footer {
+                background-color: var(--dark-nav);
+                border-top: 1px solid rgba(0,255,157,0.1);
+                padding-top: 3rem;
+                padding-bottom: 3rem;
+                color: var(--text-muted);
+            }
+            .footer h4 {
+                font-family: "Montserrat", sans-serif;
+                font-weight: 700;
+                letter-spacing: 2px;
+                font-size: 0.85rem;
+                color: var(--cyber-green);
+                margin-bottom: 1rem;
+            }
+            .footer .lead { font-size: 0.9rem; color: var(--text-muted); }
+            .btn-social {
+                border-radius: 100%;
+                display: inline-flex;
+                width: 3rem;
+                height: 3rem;
+                font-size: 1.1rem;
+                justify-content: center;
+                align-items: center;
+                border: 1px solid rgba(0,255,157,0.3);
+                color: var(--text-primary) !important;
+                transition: border-color 0.3s, background 0.3s;
+            }
+            .btn-social:hover {
+                border-color: var(--cyber-green);
+                background: rgba(0,255,157,0.1);
+                color: var(--cyber-green) !important;
+            }
+            .copyright {
+                background-color: #030508;
+                color: var(--text-muted);
+                font-size: 0.8rem;
+                padding: 1rem 0;
+            }
+
+            /* ---- MODALS ---- */
+            .portfolio-modal .modal-content {
+                background-color: var(--dark-card);
+                color: var(--text-primary);
+                border: 1px solid rgba(0,255,157,0.2);
+            }
+            .portfolio-modal .btn-close { filter: invert(1); opacity: 0.6; }
+            .portfolio-modal .portfolio-modal-title {
+                font-family: "Montserrat", sans-serif;
+                font-size: 2rem;
+                font-weight: 900;
+                color: #fff;
+            }
+            .portfolio-modal p { color: var(--text-muted); }
+
+            /* ---- NAVBAR DÉTAILLÉE ---- */
+            .text-cyber { color: var(--cyber-green) !important; }
+            .border-cyber { border-color: rgba(0,255,157,0.2) !important; }
+
+            /* Dropdown dark cyber */
+            .dropdown-cyber {
+                background-color: #0a0e17;
+                border: 1px solid rgba(0,255,157,0.25);
+                border-radius: 8px;
+                box-shadow: 0 8px 32px rgba(0,0,0,0.6), 0 0 20px rgba(0,255,157,0.08);
+                padding: 0.5rem 0;
+                min-width: 220px;
+            }
+            .dropdown-cyber .dropdown-item {
+                color: var(--text-primary);
+                font-family: "Lato", sans-serif;
+                font-size: 0.85rem;
+                padding: 0.55rem 1.25rem;
+                transition: background 0.2s, color 0.2s;
+                letter-spacing: 0.3px;
+            }
+            .dropdown-cyber .dropdown-item:hover,
+            .dropdown-cyber .dropdown-item:focus {
+                background-color: rgba(0,255,157,0.1);
+                color: var(--cyber-green);
+            }
+            .dropdown-cyber .dropdown-divider {
+                border-color: rgba(0,255,157,0.15);
+                margin: 0.3rem 0;
+            }
+            /* Flèche dropdown colorée */
+            #mainNav .nav-link.dropdown-toggle::after {
+                border-top-color: var(--cyber-green);
+                opacity: 0.7;
+            }
+
+            /* Bouton Contact "CTA" dans la navbar */
+            #mainNav .nav-cta {
+                border: 1px solid rgba(0,255,157,0.5);
+                color: var(--cyber-green) !important;
+                font-weight: 700;
+                letter-spacing: 0.5px;
+                transition: background 0.3s, box-shadow 0.3s;
+            }
+            #mainNav .nav-cta:hover {
+                background: rgba(0,255,157,0.12);
+                box-shadow: 0 0 12px rgba(0,255,157,0.25);
+                color: var(--cyber-green) !important;
+            }
+
+            /* Lien actif bien visible */
+            #mainNav .nav-link.active {
+                background: rgba(0,255,157,0.12) !important;
+                color: var(--cyber-green) !important;
+                box-shadow: inset 0 -2px 0 var(--cyber-green);
+            }
+
+
+            @media (max-width: 991px) {
+                .masthead-heading { font-size: 2rem; }
+                .masthead-subheading { font-size: 0.95rem; }
+            }
+        </style>
+    </head>
+    <body id="page-top">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand" href="#page-top">
+                    Portfolio
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+                    aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"
+                    style="border:1px solid rgba(0,255,157,0.3); color:var(--cyber-green);">
+                    Menu <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto align-items-lg-center">
+
+                        <!-- Projets (avec sous-menu dropdown) -->
+                        <li class="nav-item dropdown mx-0 mx-lg-1">
+                            <a class="nav-link py-3 px-0 px-lg-3 rounded dropdown-toggle" href="#portfolio"
+                               id="dropPortfolio" role="button"
+                               data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-laptop-code me-1"></i> Projets
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark dropdown-cyber" aria-labelledby="dropPortfolio">
+                                <li><a class="dropdown-item" href="#portfolio">
+                                    <i class="fas fa-th-large me-2 text-cyber"></i>Tous les projets
+                                </a></li>
+                                <li><hr class="dropdown-divider border-cyber"></li>
+                                <li><a class="dropdown-item" href="#modal1" data-bs-toggle="modal">
+                                    <i class="fas fa-network-wired me-2 text-cyber"></i>Scanner Réseau
+                                </a></li>
+                                <li><a class="dropdown-item" href="#modal2" data-bs-toggle="modal">
+                                    <i class="fas fa-server me-2 text-cyber"></i>Cisco VLAN & Routage
+                                </a></li>
+                                <li><a class="dropdown-item" href="#modal3" data-bs-toggle="modal">
+                                    <i class="fas fa-globe me-2 text-cyber"></i>Portfolio Web
+                                </a></li>
+                                <li><a class="dropdown-item" href="#modal4" data-bs-toggle="modal">
+                                    <i class="fas fa-bug me-2 text-cyber"></i>CTF Challenges
+                                </a></li>
+                                <li><a class="dropdown-item" href="#modal5" data-bs-toggle="modal">
+                                    <i class="fas fa-database me-2 text-cyber"></i>Gestionnaire Mots de passe
+                                </a></li>
+                                <li><a class="dropdown-item" href="#modal6" data-bs-toggle="modal">
+                                    <i class="fas fa-palette me-2 text-cyber"></i>Identité Visuelle
+                                </a></li>
+                            </ul>
+                        </li>
+
+                        <!-- Compétences -->
+                        <li class="nav-item mx-0 mx-lg-1">
+                            <a class="nav-link py-3 px-0 px-lg-3 rounded" href="#competences">
+                                <i class="fas fa-code me-1"></i> Compétences
+                            </a>
+                        </li>
+
+                        <!-- À Propos -->
+                        <li class="nav-item mx-0 mx-lg-1">
+                            <a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about">
+                                <i class="fas fa-user-secret me-1"></i> À Propos
+                            </a>
+                        </li>
+
+                        <!-- Contact (bouton mis en valeur) -->
+                        <li class="nav-item mx-0 mx-lg-2">
+                            <a class="nav-link nav-cta py-2 px-3 rounded" href="#contact">
+                                <i class="fas fa-satellite-dish me-1"></i> Contact
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Masthead -->
+        <header class="masthead text-center">
+            <div class="container d-flex align-items-center flex-column">
+                <img class="masthead-avatar mb-5" src="assets/img/Sans-titre---1.png" alt="Mohamed HARO" />
+                <h1 class="masthead-heading text-uppercase mb-0">
+                    Mohamed <span>HARO</span>
+                </h1>
+                <div class="divider-custom divider-light">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon"><i class="fas fa-shield-halved"></i></div>
+                    <div class="divider-custom-line"></div>
+                </div>
+                <p class="masthead-subheading font-weight-light mb-0">
+                    Cybersécurité &nbsp;·&nbsp; Hacking Éthique &nbsp;·&nbsp; Web Design &nbsp;·&nbsp; Ingénieur Réseau & Systèmes<span class="cursor-blink"></span>
+                </p>
+            </div>
+        </header>
+
+        <!-- ===== PROJETS ===== -->
+        <section class="page-section portfolio" id="portfolio">
+            <div class="container">
+                <h2 class="page-section-heading text-center text-uppercase mb-0">Projets</h2>
+                <div class="divider-custom">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon"><i class="fas fa-terminal"></i></div>
+                    <div class="divider-custom-line"></div>
+                </div>
+                <div class="row justify-content-center g-4">
+
+                    <!-- Projet 1 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="project-card" data-bs-toggle="modal" data-bs-target="#modal1">
+                            <span class="badge-status">En cours</span>
+                            <div class="project-icon"><i class="fas fa-network-wired"></i></div>
+                            <h5>Scanner de Réseau Local</h5>
+                            <p>Outil Python de cartographie réseau basé sur Scapy — détection d'hôtes actifs, ports ouverts et services exposés.</p>
+                            <div>
+                                <span class="badge-tech">Python</span>
+                                <span class="badge-tech">Scapy</span>
+                                <span class="badge-tech">Nmap</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Projet 2 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="project-card" data-bs-toggle="modal" data-bs-target="#modal2">
+                            <span class="badge-status">Projet CCNA</span>
+                            <div class="project-icon"><i class="fas fa-server"></i></div>
+                            <h5>Simulation Cisco – VLAN & Routage</h5>
+                            <p>Maquette réseau d'entreprise sous Cisco Packet Tracer avec segmentation VLAN, ACL et protocole OSPF.</p>
+                            <div>
+                                <span class="badge-tech">Cisco</span>
+                                <span class="badge-tech">VLAN</span>
+                                <span class="badge-tech">OSPF</span>
+                                <span class="badge-tech">ACL</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Projet 3 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="project-card" data-bs-toggle="modal" data-bs-target="#modal3">
+                            <span class="badge-status">Terminé</span>
+                            <div class="project-icon"><i class="fas fa-globe"></i></div>
+                            <h5>Site Web Portfolio</h5>
+                            <p>Portfolio personnel en HTML / CSS / JavaScript avec thème dark cybersécurité, responsive et optimisé SEO.</p>
+                            <div>
+                                <span class="badge-tech">HTML</span>
+                                <span class="badge-tech">CSS</span>
+                                <span class="badge-tech">JavaScript</span>
+                                <span class="badge-tech">Bootstrap</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Projet 4 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="project-card" data-bs-toggle="modal" data-bs-target="#modal4">
+                            <span class="badge-status">Lab perso</span>
+                            <div class="project-icon"><i class="fas fa-bug"></i></div>
+                            <h5>CTF – Capture The Flag</h5>
+                            <p>Participation à des challenges CTF en ligne (TryHackMe, Root-Me) — exploitation web, reverse engineering et forensics.</p>
+                            <div>
+                                <span class="badge-tech">TryHackMe</span>
+                                <span class="badge-tech">Root-Me</span>
+                                <span class="badge-tech">Kali Linux</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Projet 5 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="project-card" data-bs-toggle="modal" data-bs-target="#modal5">
+                            <span class="badge-status">En cours</span>
+                            <div class="project-icon"><i class="fas fa-database"></i></div>
+                            <h5>Gestionnaire de Mots de Passe</h5>
+                            <p>Application Python avec chiffrement AES-256 pour stocker et générer des mots de passe sécurisés localement.</p>
+                            <div>
+                                <span class="badge-tech">Python</span>
+                                <span class="badge-tech">AES-256</span>
+                                <span class="badge-tech">MySQL</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Projet 6 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="project-card" data-bs-toggle="modal" data-bs-target="#modal6">
+                            <span class="badge-status">Design</span>
+                            <div class="project-icon"><i class="fas fa-palette"></i></div>
+                            <h5>Identité Visuelle – Canva</h5>
+                            <p>Conception de chartes graphiques, affiches et supports de communication pour des associations et projets étudiants.</p>
+                            <div>
+                                <span class="badge-tech">Canva</span>
+                                <span class="badge-tech">WordPress</span>
+                                <span class="badge-tech">Figma</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== COMPÉTENCES ===== -->
+        <section class="page-section" id="competences" style="background:#0a0e17; border-top:1px solid rgba(0,255,157,0.08);">
+            <div class="container">
+                <h2 class="page-section-heading text-center text-uppercase mb-0">Compétences</h2>
+                <div class="divider-custom">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon"><i class="fas fa-code"></i></div>
+                    <div class="divider-custom-line"></div>
+                </div>
+                <div class="row g-5">
+                    <div class="col-lg-6">
+                        <h4 style="font-family:'Montserrat',sans-serif;font-size:.8rem;letter-spacing:2px;color:var(--cyber-blue);margin-bottom:1.5rem;">LOGICIELS & OUTILS</h4>
+                        <div class="skill-bar-wrap">
+                            <div class="skill-label">Python</div>
+                            <div class="skill-bar"><div class="skill-bar-fill" style="--fill:75%"></div></div>
+                        </div>
+                        <div class="skill-bar-wrap">
+                            <div class="skill-label">MySQL</div>
+                            <div class="skill-bar"><div class="skill-bar-fill" style="--fill:65%"></div></div>
+                        </div>
+                        <div class="skill-bar-wrap">
+                            <div class="skill-label">VSCode</div>
+                            <div class="skill-bar"><div class="skill-bar-fill" style="--fill:85%"></div></div>
+                        </div>
+                        <div class="skill-bar-wrap">
+                            <div class="skill-label">WordPress</div>
+                            <div class="skill-bar"><div class="skill-bar-fill" style="--fill:70%"></div></div>
+                        </div>
+                        <div class="skill-bar-wrap">
+                            <div class="skill-label">Canva / Design</div>
+                            <div class="skill-bar"><div class="skill-bar-fill" style="--fill:80%"></div></div>
+                        </div>
+                        <div class="skill-bar-wrap">
+                            <div class="skill-label">Cisco Packet Tracer</div>
+                            <div class="skill-bar"><div class="skill-bar-fill" style="--fill:72%"></div></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <h4 style="font-family:'Montserrat',sans-serif;font-size:.8rem;letter-spacing:2px;color:var(--cyber-blue);margin-bottom:1.5rem;">LANGUES</h4>
+                        <div class="skill-bar-wrap">
+                            <div class="skill-label">Français</div>
+                            <div class="skill-bar"><div class="skill-bar-fill" style="--fill:95%"></div></div>
+                        </div>
+                        <div class="skill-bar-wrap">
+                            <div class="skill-label">Anglais — niveau professionnel</div>
+                            <div class="skill-bar"><div class="skill-bar-fill" style="--fill:75%"></div></div>
+                        </div>
+                        <div class="skill-bar-wrap">
+                            <div class="skill-label">Espagnol — niveau débutant</div>
+                            <div class="skill-bar"><div class="skill-bar-fill" style="--fill:25%"></div></div>
+                        </div>
+
+                        <h4 style="font-family:'Montserrat',sans-serif;font-size:.8rem;letter-spacing:2px;color:var(--cyber-blue);margin-top:2rem;margin-bottom:1.5rem;">CERTIFICATIONS</h4>
+                        <div style="display:flex;flex-wrap:wrap;gap:.5rem;">
+                            <span class="badge-tech"><i class="fas fa-certificate me-1"></i>Cisco CCNA – ISM 2025</span>
+                            <span class="badge-tech"><i class="fas fa-parachute-box me-1"></i>Brevet Parachute – TEMPO 2024</span>
+                            <span class="badge-tech"><i class="fas fa-graduation-cap me-1"></i>BAC – Prytanée Militaire</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== À PROPOS ===== -->
+        <section class="page-section" id="about">
+            <div class="container">
+                <h2 class="page-section-heading text-center text-uppercase mb-0" style="color:#fff;">À Propos</h2>
+                <div class="divider-custom divider-light">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon"><i class="fas fa-user-secret"></i></div>
+                    <div class="divider-custom-line"></div>
+                </div>
+                <div class="row g-5 align-items-start">
+                    <div class="col-lg-6">
+                        <p class="lead" style="color:var(--text-primary);line-height:1.8;">
+                            Passionné par l'informatique et la cybersécurité depuis mes premières années d'études,
+                            j'ai développé des bases solides en logique, en analyse et en utilisation des outils numériques,
+                            progressivement approfondies au Prytanée Militaire de Saint-Louis.
+                        </p>
+                        <p style="color:var(--text-muted);font-size:.95rem;line-height:1.8;">
+                            Actuellement en <strong style="color:var(--cyber-green);">Licence 1 Cybersécurité à l'ISM</strong>,
+                            je combine formation académique rigoureuse et pratique terrain — du saut en parachute au debugging réseau.
+                            Mon objectif : contribuer à un web plus sûr.
+                        </p>
+                        <div class="mt-4">
+                            <div class="info-item"><i class="fas fa-map-marker-alt"></i> Golf-SUD, Guédiawaye, Sénégal</div>
+                            <div class="info-item"><i class="fas fa-envelope"></i> haromohamed727@gmail.com</div>
+                            <div class="info-item"><i class="fas fa-phone"></i> +221 76-684-64-87</div>
+                            <div class="info-item"><i class="fas fa-university"></i> ISM Dakar – Licence Cybersécurité (2025–2028)</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <h4 style="font-family:'Montserrat',sans-serif;font-size:.8rem;letter-spacing:2px;color:var(--cyber-blue);margin-bottom:1.5rem;">FORMATION</h4>
+                        <div class="formation-item">
+                            <div class="f-title">Licence 1 en Cybersécurité</div>
+                            <div class="f-org">ISM – Institut Supérieur de Management</div>
+                            <div class="f-date">2025 – 2028</div>
+                        </div>
+                        <div class="formation-item">
+                            <div class="f-title">Baccalauréat</div>
+                            <div class="f-org">Prytanée Militaire de Saint-Louis</div>
+                            <div class="f-date">2018 – 2025</div>
+                        </div>
+                        <div class="formation-item">
+                            <div class="f-title">Certification Cisco CCNA</div>
+                            <div class="f-org">ISM</div>
+                            <div class="f-date">2025</div>
+                        </div>
+                        <div class="formation-item">
+                            <div class="f-title">Brevet Saut en Parachute</div>
+                            <div class="f-org">TEMPO – Saint-Louis</div>
+                            <div class="f-date">2024</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-5">
+                    <a class="btn-cyber" href="assets/img/CV Français Professionnel Comptable Minimaliste Bleu.pdf" download>
+                        <i class="fas fa-download me-2"></i>Télécharger mon CV
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== CONTACT ===== -->
+        <section class="page-section" id="contact">
+            <div class="container">
+                <h2 class="page-section-heading text-center text-uppercase mb-0">Contact</h2>
+                <div class="divider-custom">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon"><i class="fas fa-satellite-dish"></i></div>
+                    <div class="divider-custom-line"></div>
+                </div>
+                <div class="row justify-content-center g-5">
+                    <!-- Liens directs -->
+                    <div class="col-lg-4">
+                        <h4 style="font-family:'Montserrat',sans-serif;font-size:.8rem;letter-spacing:2px;color:var(--cyber-blue);margin-bottom:1.5rem;">ME JOINDRE DIRECTEMENT</h4>
+                        <a class="contact-link" href="mailto:haromohamed727@gmail.com">
+                            <i class="fas fa-envelope"></i>
+                            <span>haromohamed727@gmail.com</span>
+                        </a>
+                        <a class="contact-link" href="tel:+221766846487">
+                            <i class="fas fa-phone"></i>
+                            <span>+221 76-684-64-87</span>
+                        </a>
+                        <a class="contact-link" href="https://www.linkedin.com/feed/" target="_blank" rel="noopener">
+                            <i class="fab fa-linkedin-in"></i>
+                            <span>LinkedIn</span>
+                        </a>
+                        <a class="contact-link" href="https://github.com/Moms-61/Moms" target="_blank" rel="noopener">
+                            <i class="fab fa-github"></i>
+                            <span>GitHub</span>
+                        </a>
+                        <a class="contact-link" href="https://wa.me/221766846487" target="_blank" rel="noopener">
+                            <i class="fab fa-whatsapp"></i>
+                            <span>WhatsApp — +221 76-684-64-87</span>
+                        </a>
+                    </div>
+                    <!-- Formulaire -->
+                    <div class="col-lg-7">
+                        <h4 style="font-family:'Montserrat',sans-serif;font-size:.8rem;letter-spacing:2px;color:var(--cyber-blue);margin-bottom:1.5rem;">ENVOYER UN MESSAGE</h4>
+                        <form id="contactForm">
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="name" type="text" placeholder="Votre nom" required />
+                                <label for="name">Nom complet</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="email" type="email" placeholder="email@exemple.com" required />
+                                <label for="email">Adresse e-mail</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <textarea class="form-control" id="message" placeholder="Votre message…" style="height:10rem" required></textarea>
+                                <label for="message">Message</label>
+                            </div>
+                            <div class="text-center">
+                                <button class="btn-cyber" type="submit">
+                                    <i class="fas fa-paper-plane me-2"></i>Envoyer
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer text-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 mb-4 mb-lg-0">
+                        <h4 class="text-uppercase">Localisation</h4>
+                        <p class="lead">Golf-SUD, Guédiawaye<br>Dakar, Sénégal</p>
+                    </div>
+                    <div class="col-lg-4 mb-4 mb-lg-0">
+                        <h4 class="text-uppercase">Réseaux</h4>
+                        <a class="btn btn-social mx-1" href="https://github.com/Moms-61/Moms" target="_blank"><i class="fab fa-fw fa-github"></i></a>
+                        <a class="btn btn-social mx-1" href="https://www.linkedin.com/feed/" target="_blank"><i class="fab fa-fw fa-linkedin-in"></i></a>
+                        <a class="btn btn-social mx-1" href="https://wa.me/221766846487" target="_blank"><i class="fab fa-fw fa-whatsapp"></i></a>
+                        <a class="btn btn-social mx-1" href="mailto:haromohamed727@gmail.com"><i class="fas fa-fw fa-envelope"></i></a>
+                    </div>
+                    <div class="col-lg-4">
+                        <h4 class="text-uppercase">Bio</h4>
+                        <p class="lead">Étudiant en cybersécurité à l'ISM Dakar, passionné par la sécurité des systèmes et le design.</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <div class="copyright py-3 text-center">
+            <div class="container"><small>&copy; 2025 Mohamed HARO — Tous droits réservés</small></div>
+        </div>
+
+        <!-- ===== MODALS PROJETS ===== -->
+
+        <!-- Modal 1 -->
+        <div class="portfolio-modal modal fade" id="modal1" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Fermer"></button></div>
+                    <div class="modal-body text-center pb-5">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8">
+                                    <h2 class="portfolio-modal-title text-uppercase mb-0">Scanner de Réseau Local</h2>
+                                    <div class="divider-custom"><div class="divider-custom-line"></div><div class="divider-custom-icon"><i class="fas fa-network-wired"></i></div><div class="divider-custom-line"></div></div>
+                                    <p>Outil développé en Python avec la bibliothèque Scapy permettant de scanner un réseau local, détecter les hôtes actifs, identifier les ports ouverts et lister les services exposés. Projet réalisé dans le cadre de mes apprentissages en Licence Cybersécurité.</p>
+                                    <div class="mb-4"><span class="badge-tech">Python</span><span class="badge-tech">Scapy</span><span class="badge-tech">Nmap</span><span class="badge-tech">Linux</span></div>
+                                    <button class="btn-cyber" data-bs-dismiss="modal"><i class="fas fa-xmark me-2"></i>Fermer</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal 2 -->
+        <div class="portfolio-modal modal fade" id="modal2" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Fermer"></button></div>
+                    <div class="modal-body text-center pb-5">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8">
+                                    <h2 class="portfolio-modal-title text-uppercase mb-0">Simulation Cisco – VLAN & Routage</h2>
+                                    <div class="divider-custom"><div class="divider-custom-line"></div><div class="divider-custom-icon"><i class="fas fa-server"></i></div><div class="divider-custom-line"></div></div>
+                                    <p>Conception d'un réseau d'entreprise complet sous Cisco Packet Tracer intégrant la segmentation VLAN, des listes de contrôle d'accès (ACL) et le protocole de routage dynamique OSPF. Réalisé dans le cadre de la certification CCNA à l'ISM.</p>
+                                    <div class="mb-4"><span class="badge-tech">Cisco</span><span class="badge-tech">Packet Tracer</span><span class="badge-tech">VLAN</span><span class="badge-tech">OSPF</span><span class="badge-tech">ACL</span></div>
+                                    <button class="btn-cyber" data-bs-dismiss="modal"><i class="fas fa-xmark me-2"></i>Fermer</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal 3 -->
+        <div class="portfolio-modal modal fade" id="modal3" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Fermer"></button></div>
+                    <div class="modal-body text-center pb-5">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8">
+                                    <h2 class="portfolio-modal-title text-uppercase mb-0">Site Web Portfolio</h2>
+                                    <div class="divider-custom"><div class="divider-custom-line"></div><div class="divider-custom-icon"><i class="fas fa-globe"></i></div><div class="divider-custom-line"></div></div>
+                                    <p>Ce portfolio personnel a été entièrement développé et personnalisé en HTML, CSS et JavaScript. Thème dark cybersécurité, responsive design, animations CSS, optimisé pour le référencement.</p>
+                                    <div class="mb-4"><span class="badge-tech">HTML5</span><span class="badge-tech">CSS3</span><span class="badge-tech">JavaScript</span><span class="badge-tech">Bootstrap 5</span></div>
+                                    <button class="btn-cyber" data-bs-dismiss="modal"><i class="fas fa-xmark me-2"></i>Fermer</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal 4 -->
+        <div class="portfolio-modal modal fade" id="modal4" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Fermer"></button></div>
+                    <div class="modal-body text-center pb-5">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8">
+                                    <h2 class="portfolio-modal-title text-uppercase mb-0">CTF – Capture The Flag</h2>
+                                    <div class="divider-custom"><div class="divider-custom-line"></div><div class="divider-custom-icon"><i class="fas fa-bug"></i></div><div class="divider-custom-line"></div></div>
+                                    <p>Participation régulière à des challenges CTF sur TryHackMe et Root-Me couvrant l'exploitation de vulnérabilités web (XSS, SQLi), le reverse engineering, la cryptographie et le forensics numérique.</p>
+                                    <div class="mb-4"><span class="badge-tech">TryHackMe</span><span class="badge-tech">Root-Me</span><span class="badge-tech">Kali Linux</span><span class="badge-tech">Burp Suite</span></div>
+                                    <button class="btn-cyber" data-bs-dismiss="modal"><i class="fas fa-xmark me-2"></i>Fermer</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal 5 -->
+        <div class="portfolio-modal modal fade" id="modal5" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Fermer"></button></div>
+                    <div class="modal-body text-center pb-5">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8">
+                                    <h2 class="portfolio-modal-title text-uppercase mb-0">Gestionnaire de Mots de Passe</h2>
+                                    <div class="divider-custom"><div class="divider-custom-line"></div><div class="divider-custom-icon"><i class="fas fa-database"></i></div><div class="divider-custom-line"></div></div>
+                                    <p>Application en ligne de commande développée en Python, utilisant le chiffrement AES-256 pour stocker les identifiants localement dans une base MySQL. Génération automatique de mots de passe forts et interface simple.</p>
+                                    <div class="mb-4"><span class="badge-tech">Python</span><span class="badge-tech">AES-256</span><span class="badge-tech">MySQL</span><span class="badge-tech">Cryptography</span></div>
+                                    <button class="btn-cyber" data-bs-dismiss="modal"><i class="fas fa-xmark me-2"></i>Fermer</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal 6 -->
+        <div class="portfolio-modal modal fade" id="modal6" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Fermer"></button></div>
+                    <div class="modal-body text-center pb-5">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8">
+                                    <h2 class="portfolio-modal-title text-uppercase mb-0">Identité Visuelle – Canva</h2>
+                                    <div class="divider-custom"><div class="divider-custom-line"></div><div class="divider-custom-icon"><i class="fas fa-palette"></i></div><div class="divider-custom-line"></div></div>
+                                    <p>Création de chartes graphiques complètes, affiches événementielles, flyers et supports de communication digitaux pour des associations étudiantes, réalisés avec Canva et intégrés sur WordPress.</p>
+                                    <div class="mb-4"><span class="badge-tech">Canva</span><span class="badge-tech">WordPress</span><span class="badge-tech">Figma</span></div>
+                                    <button class="btn-cyber" data-bs-dismiss="modal"><i class="fas fa-xmark me-2"></i>Fermer</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Scripts -->
+        <script src="js/scripts.js"></script>
+        <script>
+            // Animer les barres de compétences quand elles entrent dans le viewport
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(e => {
+                    if (e.isIntersecting) {
+                        e.target.style.width = e.target.style.getPropertyValue('--fill') || getComputedStyle(e.target).getPropertyValue('--fill');
+                    }
+                });
+            }, { threshold: 0.3 });
+            document.querySelectorAll('.skill-bar-fill').forEach(el => observer.observe(el));
+        </script>
+    </body>
+</html>
